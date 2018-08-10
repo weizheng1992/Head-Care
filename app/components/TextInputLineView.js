@@ -34,7 +34,7 @@ export default class TextInputLineView extends React.Component {
           <View style={styles.txtView}>
             <TextInput
               placeholder={label}
-              keyboardType={keyboardType || ""}
+              keyboardType={keyboardType || "default"}
               style={styles.inputTxt}
               placeholderTextColor={color.secondary}
               onBlur={this.onBlurInput}
