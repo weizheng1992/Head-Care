@@ -37,8 +37,13 @@ componentDidMount(){
       this.setState({refreshing:false})
     },1000)
   }
+  toWebViewpage=()=>{
+    const { navigate} =this.props.navigation;
+    navigate('WebViewPage');
+  }
+
   _renderItemView=()=>{
-    return( <View style={styles.slide1}>
+    return( <TouchableOpacity style={styles.slide1} onPress={this.toWebViewpage} activeOpacity={1}>
       <Image
         source={require("../../img/splash.png")}
         style={styles.fullImg}
@@ -47,7 +52,7 @@ componentDidMount(){
         <Text style={styles.swiperTitle}>Hello Swiper</Text>
         <Text style={styles.swiperInfo}>桑德拉空间大垃圾离得近</Text>
       </View>
-    </View>)
+    </TouchableOpacity>)
   }
 
   _renderFooter(){

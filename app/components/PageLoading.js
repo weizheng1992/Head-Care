@@ -6,13 +6,13 @@ import {View,ActivityIndicator,StyleSheet} from 'react-native';
 
 
 const PageLoading =()=>{
-    <View style={styles.container}>
+    return (<View style={styles.container}>
                 <ActivityIndicator
                     animating={true}
                     color='red'
                     size="large"
                 />
-            </View>
+            </View>)
 
 }
 

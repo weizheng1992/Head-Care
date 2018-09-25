@@ -6,7 +6,8 @@ import {
   StyleSheet,
 } from "react-native";
 import BasePage from "../components/BasePage";
-import { screen, Toast } from "../until";
+import {StackActions,NavigationActions} from 'react-navigation';
+import { screen, Toast ,BackHandler} from "../until";
 import { color } from "../constants";
 import TextInputLineView from "../components/TextInputLineView";
 import CountDownButton from "../components/CountDownButton";
@@ -19,6 +20,8 @@ export default class Login extends BasePage {
     // const name = navigation;
     console.log(navigation.state.params.left);
     if(navigation.state.params.left){
+
+
       return{
         title:'登录',
         headerLeft:null
@@ -39,7 +42,7 @@ export default class Login extends BasePage {
   }
 
   componentDidMount() {
-    console.log(USER)
+
   }
 
   onChangePhoneNum = num => {
@@ -61,6 +64,17 @@ export default class Login extends BasePage {
     //   shouldStartCounting && shouldStartCounting(requestSucc);
     // }, 1000);
   };
+
+  onLogin=()=>{
+    const { navigation } = this.props;
+
+    const resetAction = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'Main', params: {left:true}})],
+    });
+    navigation.dispatch(resetAction);
+    // navigate('Main')
+  }
 
   renderComponent() {
     const { phoneNum, visible } = this.state;
@@ -93,7 +107,7 @@ export default class Login extends BasePage {
           }
         />
         <Button
-          onPress={() => {}}
+          onPress={this.onLogin}
           style={styles.bottomBtnTxt}
           containerStyle={styles.bottomBtn}
           text={"确定"}
