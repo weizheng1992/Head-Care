@@ -20,9 +20,7 @@ export default class Login extends BasePage {
     // const name = navigation;
     console.log(navigation.state.params.left);
     if(navigation.state.params.left){
-
-
-      return{
+            return{
         title:'登录',
         headerLeft:null
       }

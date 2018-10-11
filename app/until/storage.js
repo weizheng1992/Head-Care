@@ -6,7 +6,7 @@ import { AsyncStorage } from 'react-native'
 import {sync} from './sync'
 
 
-var storage = new Storage({
+var _storage = new Storage({
     // 最大容量，默认值1000条数据循环存储
     size: 1000,
  
@@ -30,15 +30,20 @@ var storage = new Storage({
     sync: sync
 })
 
+const initStorage=()=>{
+  if(_storage==undefined){
+   throw "请先调用_getStorage()进行初始化";
+ }
+}
 
 
-const _storage = {
+const storage = {
 
     // 使用key来保存数据。这些数据一般是全局独有的，常常需要调用的。
     // 除非你手动移除，这些数据会被永久保存，而且默认不会过期。
     save(key, obj) {
       initStorage()
-      storage.save({
+      _storage.save({
         key: key,  // 注意: 请不要在key中使用_下划线符号!
         data: obj,
         // 如果不指定过期时间，则会使用defaultExpires参数
@@ -50,7 +55,7 @@ const _storage = {
     // 取数据
     load(key, callBack) {
       initStorage()
-      storage.load({
+      _storage.load({
         key: key,
         // autoSync(默认为true)意味着在没有找到数据或数据过期时自动调用相应的sync方法
         autoSync: true,
@@ -91,7 +96,7 @@ const _storage = {
     // 获取某个key下的所有id(仅key-id数据)
     getIdsForKey(id, callback) {
       initStorage()
-      storage.getIdsForKey(id).then(ids => {
+      _storage.getIdsForKey(id).then(ids => {
         callback && callback(ids)
       })
     },
@@ -107,13 +112,13 @@ const _storage = {
     // !! 清除某个key下的所有数据(仅key-id数据)
     clearMapForKey(key) {
       initStorage()
-      storage.clearMapForKey(key)
+      _storage.clearMapForKey(key)
     },
   
     // 删除单个数据
     remove(key) {
       initStorage()
-      storage.remove({
+      _storage.remove({
         key: key
       })
     },
@@ -121,9 +126,9 @@ const _storage = {
     // !! 清空map，移除所有"key-id"数据（但会保留只有key的数据）
     clearMap() {
       initStorage()
-      storage.clearMap()
+      _storage.clearMap()
     }
   }
   
 
-  export {_storage as storage}
+  export  default storage

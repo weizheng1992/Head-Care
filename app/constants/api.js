@@ -7,3 +7,9 @@
       list: 'member/news/list',
       type: 'member/news/type/list',
   }
+
+
+  export const  STUDYFLOW = {
+    question:'member/studyflow/question',
+    managerInfo:'member/studyflow/managerInfo'
+  }

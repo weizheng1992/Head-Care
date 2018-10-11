@@ -26,7 +26,7 @@ class Splash extends React.Component {
     this.timer = setTimeout(() => {
 
    
-        navigate({routeName: 'Login',
+        navigate({routeName: 'LearningFlow',
         params: {left:true},});
     }, 1000);
   }

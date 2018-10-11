@@ -96,7 +96,7 @@ export default class Home extends BasePage {
           </View>
         </View>
         <View style={styles.title}>
-        <Text style={styles.titleTxt}>今日推荐</Text>
+          <Text style={styles.titleTxt}>今日推荐</Text>
         </View>
         <ListView
           dataSource={dataSource}
@@ -124,28 +124,76 @@ export default class Home extends BasePage {
           </View>
         </View>
         <View style={styles.healthCounselList}>
-            <View style={styles.healthCounselCell}>
-                <View style={styles.healthCounselCellLeft}>
-                    <View style={styles.healthCounselTitleView}>
-                      <Text style={styles.healthCounselTitle}>资及样：观大绝天书人好亲外少一然说奖；则人惊又人自推未。场麽红冷吃起、可做一？市资不尽往来各种是班叫人。</Text>
-                    </View>
-                   <View style={styles.healthCounselInfoView}>
-                      <Text style={styles.healthCounselInfo} >哈哈哈 <Text style={styles.healthCounselDate}>· 8-30</Text></Text>
-                   </View>
-                </View>
-                <Image source={require('../../img/myservice04.png')} style={styles.healthCounselImg}/>
+          <View style={styles.healthCounselCell}>
+            <View style={styles.healthCounselCellLeft}>
+              <View style={styles.healthCounselTitleView}>
+                <Text style={styles.healthCounselTitle}>
+                  资及样：观大绝天书人好亲外少一然说奖；则人惊又人自推未。场麽红冷吃起、可做一？市资不尽往来各种是班叫人。
+                </Text>
+              </View>
+              <View style={styles.healthCounselInfoView}>
+                <Text style={styles.healthCounselInfo}>
+                  哈哈哈 <Text style={styles.healthCounselDate}>· 8-30</Text>
+                </Text>
+              </View>
             </View>
-            <View style={styles.healthCounselCell}>
-                <View style={[styles.healthCounselCellLeft,styles.noneBorder]}>
-                    <View style={styles.healthCounselTitleView}>
-                      <Text style={styles.healthCounselTitle}>资及样：观大绝天书人好亲外少一然说奖；则人惊又人自推未。场麽红冷吃起、可做一？市资不尽往来各种是班叫人。</Text>
-                    </View>
-                   <View style={styles.healthCounselInfoView}>
-                      <Text style={styles.healthCounselInfo} >哈哈哈 <Text style={styles.healthCounselDate}>· 8-30</Text></Text>
-                   </View>
-                </View>
-                <Image source={require('../../img/myservice04.png')} style={styles.healthCounselImg}/>
+            <Image
+              source={require("../../img/myservice04.png")}
+              style={styles.healthCounselImg}
+            />
+          </View>
+          <View style={styles.healthCounselCell}>
+            <View style={[styles.healthCounselCellLeft, styles.noneBorder]}>
+              <View style={styles.healthCounselTitleView}>
+                <Text style={styles.healthCounselTitle}>
+                  资及样：观大绝天书人好亲外少一然说奖；则人惊又人自推未。场麽红冷吃起、可做一？市资不尽往来各种是班叫人。
+                </Text>
+              </View>
+              <View style={styles.healthCounselInfoView}>
+                <Text style={styles.healthCounselInfo}>
+                  哈哈哈 <Text style={styles.healthCounselDate}>· 8-30</Text>
+                </Text>
+              </View>
             </View>
+            <Image
+              source={require("../../img/myservice04.png")}
+              style={styles.healthCounselImg}
+            />
+          </View>
+        </View>
+        <View style={styles.healthCounseling}>
+          <View style={styles.counselingLeft}>
+            <Text style={styles.counselingTitle}>健康咖咖秀</Text>
+          </View>
+          <View style={styles.counselingRight}>
+            <Text style={styles.counselingMore}>更多</Text>
+          </View>
+        </View>
+        <ListView
+          dataSource={dataSource}
+          renderRow={this._renderRow}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          pagingEnabled={true}
+        />
+        <View style={styles.healthCounseling}>
+          <View style={styles.counselingLeft}>
+            <Text style={styles.counselingTitle}>健康自测</Text>
+          </View>
+          <View style={styles.counselingRight}>
+            <Text style={styles.counselingMore}>更多</Text>
+          </View>
+        </View>
+        <View style={styles.healthTest}>
+          <View style={styles.healthTestCel}>
+            <Image
+              source={require("../../img/recommand_img01.png")}
+              style={styles.healthTestImg}
+            />
+            <View style={styles.healthTestTxtView}>
+              <Text style={styles.serviceTxt}>儿童近视眼恢复</Text>
+            </View>
+          </View>
         </View>
       </ScrollView>
     );
@@ -160,10 +208,9 @@ const styles = StyleSheet.create({
   title: {
     height: 60,
     justifyContent: "center",
-    marginLeft: 16,
-  
+    marginLeft: 16
   },
-  titleTxt:{
+  titleTxt: {
     fontSize: 20,
     color: "#000"
   },
@@ -273,66 +320,87 @@ const styles = StyleSheet.create({
   },
   healthCounseling: {
     flexDirection: "row",
-    margin:16,
-    marginTop:40,
+    margin: 16,
+    marginTop: 40
   },
   counselingLeft: {
     flex: 1
   },
   counselingRight: {
     flex: 1,
-    alignItems:'flex-end'
+    alignItems: "flex-end"
   },
-  counselingTitle:{
-    fontSize:20,
-    color:'#000',
+  counselingTitle: {
+    fontSize: 20,
+    color: "#000"
   },
-  counselingMore:{
-    color:'#F57F17',
-    fontSize:14,
-  },healthCounselList:{
-    marginLeft:16,
-    marginRight:16,
-    backgroundColor:'#fff',
-    borderRadius:5,
+  counselingMore: {
+    color: "#F57F17",
+    fontSize: 14
   },
-  healthCounselCell:{
-    flexDirection:'row'
+  healthCounselList: {
+    marginLeft: 16,
+    marginRight: 16,
+    backgroundColor: "#fff",
+    borderRadius: 5
   },
-  healthCounselCellLeft:{
-    flex:1,
-    paddingBottom:16,
+  healthCounselCell: {
+    flexDirection: "row"
+  },
+  healthCounselCellLeft: {
+    flex: 1,
+    paddingBottom: 16,
     borderColor: color.border,
-    borderBottomWidth: screen.onePixel,
+    borderBottomWidth: screen.onePixel
   },
-  healthCounselTitleView:{
-    height:50,
-    overflow:'hidden',
+  healthCounselTitleView: {
+    height: 50,
+    overflow: "hidden",
+    margin: 16
+  },
+  healthCounselTitle: {
+    fontSize: 18,
+    color: "#000"
+  },
+  healthCounselInfoView: {
+    marginLeft: 16,
+    height: 22
+  },
+  healthCounselInfo: {
+    fontSize: 12,
+    color: "#525252"
+  },
+  healthCounselDate: {
+    color: "#9B9B9B"
+  },
+  healthCounselImg: {
+    width: 90,
+    height: 90,
+    resizeMode: "cover",
+    marginTop: 16,
+    marginRight: 16
+  },
+  noneBorder: {
+    borderBottomWidth: 0
+  },
+  healthTest:{
     margin:16,
   },
-  healthCounselTitle:{
-    fontSize:18,
-    color:'#000',
+  healthTestCel:{
+    width:screen.width-16*2,
   },
-  healthCounselInfoView:{
-   marginLeft:16,
-   height:22,
-  },
-  healthCounselInfo:{
-    fontSize:12,
-    color:'#525252',
-  },
-  healthCounselDate:{
-    color:'#9B9B9B'
-  },
-  healthCounselImg:{
-    width:90,
+  healthTestImg:{
+    width:screen.width-16*2,
     height:90,
-    resizeMode:"cover",
-    marginTop:16,
-    marginRight:16
+    borderRadius: 5,
   },
-  noneBorder:{
-    borderBottomWidth:0
+  healthTestTxtView:{
+    width:screen.width-16*2,
+    height:90,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.3)",
+    borderRadius: 5,
+    position: "absolute"
   }
 });

@@ -24,6 +24,7 @@ import ChangePhoneNum from "./pages/Mine/SetUp/ChangePhoneNum";
 import Login from "./pages/Login";
 import Splash from "./pages/Splash";
 import WebViewPage from "./pages/Info/WebViewPage";
+import LearningFlow from './pages/LearningFlow/index';
 
 global.request = request;
 
@@ -103,6 +104,9 @@ const App = createStackNavigator(
   {
     Splash: {
       screen: Splash
+    },
+    LearningFlow:{
+      screen:LearningFlow
     },
     Login: {
       screen: Login
