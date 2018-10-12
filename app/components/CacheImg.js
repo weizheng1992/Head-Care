@@ -8,7 +8,7 @@ import ProgressBar from "react-native-progress/Pie";
 const CacheImg = ({ uri, styles={} }) => (
   <CustomCachedImage
     component={Image}
-    source={{ uri: 'http://res.e-healcare.cn/oper/upload/b682b1b84df34159b2fff949ac922210.png' }}
+    source={{ uri: uri }}
     indicator={ProgressBar}
     style={styles}
   />

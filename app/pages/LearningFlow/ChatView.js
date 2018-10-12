@@ -1,35 +1,47 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+
+} from "react-native";
 import { color } from "../../constants";
 import CacheImg from "../../components/CacheImg";
 const ChatView = ({ type, txt, managerInfo }) => {
-  let chatBgColor = !type ? styles.chatViewWhite : styles.chatViewTheme;
-  return (
-    <View style={[styles.chat, type ? styles.chatRight : null]}>
-      <View style={[styles.chatView, chatBgColor]}>
-        {!managerInfo ? (
+  if (type < 2) {
+    let chatBgColor = !type ? styles.chatViewWhite : styles.chatViewTheme;
+    return (
+      <View style={[styles.chat, type ? styles.chatRight : null]}>
+        <View style={[styles.chatView, chatBgColor]}>
           <Text style={[styles.chatTxt, type ? styles.chatTxtRight : null]}>
             {txt}
           </Text>
-        ) : (
-          <View style={styles.manager}>
-            <View style={styles.managerInfo}>
-              <Text>水水水</Text>
-              <Text>信息信息</Text>
-            </View>
-            <View style={styles.managerImg}>
-              <CacheImg
-                uri={
-                  "http://res.e-healcare.cn/oper/upload/b682b1b84df34159b2fff949ac922210.png"
-                }
-                styles={{ width: 107, height: 160 }}
-              />
-            </View>
-          </View>
-        )}
+        </View>
       </View>
-    </View>
-  );
+    );
+  } else if (type === 2) {
+    return (
+      <View style={styles.manager}>
+        <View style={styles.managerInfo}>
+          <Text style={styles.managerName}>{managerInfo.name}</Text>
+          <Text style={styles.managerDesc}>{managerInfo.remark}</Text>
+        </View>
+        <View style={styles.managerImg}>
+          <CacheImg
+            uri={managerInfo.avatar}
+            styles={{
+              width: 107,
+              height: 160,
+              borderBottomRightRadius: 20,
+              borderTopRightRadius: 20,
+              overflow: "hidden"
+            }}
+          />
+        </View>
+      </View>
+    );
+  } 
 };
 export default ChatView;
 
@@ -64,5 +76,34 @@ const styles = StyleSheet.create({
   },
   chatTxtRight: {
     color: color.white
+  },
+  manager: {
+    flexDirection: "row",
+    flex: 1,
+    height: 160,
+    backgroundColor: color.white,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    borderTopRightRadius: 20,
+    marginBottom: 16
+  },
+  managerInfo: {
+    flex: 1,
+    padding: 16
+  },
+  managerName: {
+    fontSize: 16,
+    color: color.Major,
+    marginBottom: 16
+  },
+  managerDesc: {
+    fontSize: 14,
+    color: color.secondary
+  },
+  managerImg: {
+    width: 107,
+    height: 160,
+    borderBottomRightRadius: 20,
+    borderTopRightRadius: 20
   }
 });
